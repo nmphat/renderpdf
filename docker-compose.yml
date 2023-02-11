@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  renderpdf:
+    image: nmphat/renderpdf
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    security_opt: 
+      - seccomp=./chrome.json
+    ports:
+      - 3000:3000
